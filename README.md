@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Nayara 💜</title>
+<title>Para Nayararinha 💜</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -419,7 +419,7 @@
   // carta + confete
   function openLetter(){
     document.getElementById('letterText').textContent =
-      "Nayara, cada dia ao seu lado (ou pensando em você) é um presente. Você traz leveza, carinho e cor pros meus dias. Esse site é só uma forma pequena de mostrar o quanto você é especial pra mim. Te amo. 💜";
+      "Nayara, cada dia ao seu lado (ou pensando em você) é um presente. Você traz leveza, carinho e cor pros meus dias. Esse site é só uma forma pequena de mostrar o quanto você é especial pra mim. Te amo. mil milhões 💜";
     burstConfetti();
   }
 
