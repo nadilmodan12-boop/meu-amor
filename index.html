@@ -2,687 +2,127 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Nayara Carlos 💜 - Meu Amor</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, #1a0033 0%, #2d0052 50%, #1a0033 100%);
-            color: #fff6fa;
-            overflow-x: hidden;
-            background-attachment: fixed;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Fredoka', sans-serif;
-        }
-
-        /* Efeito de coração no cursor */
-        .heart-trail {
-            position: fixed;
-            pointer-events: none;
-            font-size: 20px;
-            z-index: 9999;
-            animation: floatUp 1.2s ease-out forwards;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-60px) scale(0.4);
-                opacity: 0;
-            }
-        }
-
-        /* HERO - TELA INICIAL */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            background: radial-gradient(circle at 30% 20%, #3a2159, #1a0033 70%);
-            overflow: hidden;
-            padding: 20px;
-        }
-
-        .stars {
-            position: absolute;
-            inset: 0;
-            background-image:
-                radial-gradient(2px 2px at 20% 30%, #fff, transparent),
-                radial-gradient(2px 2px at 70% 60%, #fff, transparent),
-                radial-gradient(1px 1px at 40% 80%, #fff, transparent),
-                radial-gradient(1px 1px at 85% 20%, #fff, transparent),
-                radial-gradient(1px 1px at 60% 40%, #fff, transparent);
-            opacity: 0.5;
-            animation: twinkle 4s infinite alternate;
-        }
-
-        @keyframes twinkle {
-            from { opacity: 0.3; }
-            to { opacity: 0.8; }
-        }
-
-        .hero .eyebrow {
-            letter-spacing: 3px;
-            font-size: 14px;
-            color: #b9a6ff;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 10;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
-            background: linear-gradient(90deg, #ff7fb0, #ffd873, #b9a6ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 10;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero p {
-            max-width: 520px;
-            font-size: 1.1rem;
-            color: #ffc6df;
-            position: relative;
-            z-index: 10;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .floating-hearts span {
-            position: absolute;
-            font-size: 20px;
-            opacity: 0.7;
-            animation: drift linear infinite;
-        }
-
-        @keyframes drift {
-            from { transform: translateY(110vh) rotate(0deg); }
-            to { transform: translateY(-10vh) rotate(360deg); }
-        }
-
-        .scroll-hint {
-            margin-top: 60px;
-            font-size: 28px;
-            animation: bounce 2s infinite;
-            position: relative;
-            z-index: 10;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(12px); }
-        }
-
-        /* SEÇÕES */
-        section {
-            padding: 80px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.9s cubic-bezier(0.2, 0.7, 0.3, 1);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* SOBRE */
-        .about h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #ffd873;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .about p {
-            text-align: center;
-            color: #ffc6df;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        /* MOTIVOS - CARDS */
-        .reasons {
-            text-align: center;
-        }
-
-        .reasons h2 {
-            font-size: 2rem;
-            color: #ffd873;
-            margin-bottom: 40px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: linear-gradient(145deg, #3a2159, #2c1a45);
-            border-radius: 20px;
-            padding: 28px 18px;
-            cursor: pointer;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-            border: 2px solid #ff7fb0;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 18px 30px rgba(255, 127, 176, 0.4);
-            background: linear-gradient(145deg, #4a3169, #3c2a55);
-        }
-
-        .card .emoji {
-            font-size: 2.5rem;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .card .front-text {
-            color: #ffc6df;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .card .back-text {
-            display: none;
-            color: #fff6fa;
-            font-size: 0.95rem;
-            margin-top: 10px;
-            line-height: 1.6;
-        }
-
-        .card.flipped .front-text {
-            display: none;
-        }
-
-        .card.flipped .back-text {
-            display: block;
-        }
-
-        /* GALERIA */
-        .gallery h2 {
-            text-align: center;
-            font-size: 2rem;
-            color: #ffd873;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .gallery .hint {
-            text-align: center;
-            color: #b9a6ff;
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-        }
-
-        .grid-photos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-        }
-
-        .photo {
-            aspect-ratio: 1/1;
-            border-radius: 18px;
-            background: linear-gradient(135deg, #ff7fb0, #b9a6ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.4s ease;
-            border: 2px solid #ff7fb0;
-            box-shadow: 0 8px 20px rgba(255, 127, 176, 0.2);
-        }
-
-        .photo:hover {
-            transform: rotate(-2deg) scale(1.05);
-            box-shadow: 0 12px 30px rgba(255, 127, 176, 0.4);
-        }
-
-        .photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            inset: 0;
-            display: none;
-        }
-
-        /* CONTADOR */
-        .counter {
-            text-align: center;
-        }
-
-        .counter h2 {
-            font-size: 2rem;
-            color: #ffd873;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .counter p.sub {
-            color: #ffc6df;
-            margin-bottom: 30px;
-        }
-
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .timer div {
-            background: linear-gradient(145deg, #3a2159, #2c1a45);
-            padding: 18px 20px;
-            border-radius: 16px;
-            min-width: 80px;
-            border: 2px solid #ff7fb0;
-        }
-
-        .timer .num {
-            font-size: 1.8rem;
-            font-family: 'Fredoka', sans-serif;
-            color: #ff7fb0;
-            font-weight: 700;
-        }
-
-        .timer .label {
-            font-size: 0.75rem;
-            color: #b9a6ff;
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
-
-        /* CARTA */
-        .letter {
-            text-align: center;
-        }
-
-        .letter h2 {
-            font-size: 2rem;
-            color: #ffd873;
-            margin-bottom: 24px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .letter-box {
-            background: linear-gradient(145deg, #2c1a45, #3a2159);
-            border-radius: 24px;
-            padding: 35px 25px;
-            max-width: 600px;
-            margin: 0 auto;
-            border: 2px solid #ff7fb0;
-            box-shadow: 0 10px 40px rgba(255, 127, 176, 0.2);
-        }
-
-        .letter-box p {
-            line-height: 1.9;
-            color: #fff6fa;
-            font-size: 1.05rem;
-            min-height: 60px;
-        }
-
-        .btn {
-            margin-top: 26px;
-            background: linear-gradient(90deg, #ff7fb0, #b9a6ff);
-            border: none;
-            padding: 14px 30px;
-            border-radius: 50px;
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1rem;
-            color: #1a0033;
-            cursor: pointer;
-            transition: transform 0.25s ease;
-            font-weight: 600;
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-        }
-
-        .btn:active {
-            transform: scale(0.95);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px 60px;
-            color: #b9a6ff;
-            font-size: 0.9rem;
-            border-top: 2px solid #ff7fb0;
-        }
-
-        /* CONFETE */
-        .confetti {
-            position: fixed;
-            top: -10px;
-            font-size: 20px;
-            pointer-events: none;
-            z-index: 9999;
-            animation: fall 3s linear forwards;
-        }
-
-        @keyframes fall {
-            to { transform: translateY(105vh) rotate(360deg); opacity: 0.2; }
-        }
-
-        /* RESPONSIVIDADE */
-        @media (max-width: 600px) {
-            .hero {
-                padding: 20px 15px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            section {
-                padding: 60px 15px;
-            }
-
-            .about h2, .reasons h2, .gallery h2, .counter h2, .letter h2 {
-                font-size: 1.6rem;
-            }
-
-            .cards {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .card {
-                padding: 20px 15px;
-                min-height: 180px;
-            }
-
-            .card .emoji {
-                font-size: 2rem;
-            }
-
-            .card .front-text {
-                font-size: 1rem;
-            }
-
-            .grid-photos {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
-            }
-
-            .photo {
-                border-radius: 14px;
-            }
-
-            .timer {
-                gap: 10px;
-            }
-
-            .timer div {
-                min-width: 70px;
-                padding: 15px 12px;
-            }
-
-            .letter-box {
-                padding: 25px 20px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .grid-photos {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .timer {
-                gap: 8px;
-            }
-
-            .timer div {
-                min-width: 60px;
-                padding: 12px 8px;
-            }
-
-            .timer .num {
-                font-size: 1.5rem;
-            }
-
-            .timer .label {
-                font-size: 0.7rem;
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>Weather Dashboard</h1>
+            <p>Get weather information for any city</p>
+        </header>
 
-<!-- HERO SECTION -->
-<div class="hero" id="hero">
-    <div class="stars"></div>
-    <div class="floating-hearts" id="floatingHearts"></div>
-    <p class="eyebrow">um cantinho só pra você 💜</p>
-    <h1>Nayara Carlos 💜</h1>
-    <p>Esse site existe só porque você existe. Role pra baixo e descubra o motivo. ✨</p>
-    <div class="scroll-hint">⬇️</div>
-</div>
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Enter city name..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+            <div class="suggestions" id="suggestions"></div>
+        </div>
 
-<!-- SOBRE -->
-<section class="about reveal">
-    <h2>Sobre nós 💫</h2>
-    <p>Esse é um espacinho fofo feito com carinho pra guardar motivos, fotos e uma cartinha especial pra você. Passe o mouse, clique nos cartões e explore — cada cantinho tem um pedacinho de amor. 💜</p>
-</section>
+        <div class="error-message" id="errorMessage"></div>
 
-<!-- MOTIVOS -->
-<section class="reasons reveal">
-    <h2>Motivos pra te amar 🥰</h2>
-    <div class="cards">
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <span class="emoji">😄</span>
-            <p class="front-text">Seu sorriso</p>
-            <p class="back-text">Ilumina qualquer dia ruim que eu esteja tendo.</p>
+        <div class="loading" id="loading">
+            <i class="fas fa-spinner fa-spin"></i> Loading weather data...
         </div>
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <span class="emoji">🫂</span>
-            <p class="front-text">Seu carinho</p>
-            <p class="back-text">Me faz sentir em casa mesmo longe de casa.</p>
-        </div>
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <span class="emoji">🎧</span>
-            <p class="front-text">Nossas conversas</p>
-            <p class="back-text">Podem durar horas e ainda parecem curtas.</p>
-        </div>
-        <div class="card" onclick="this.classList.toggle('flipped')">
-            <span class="emoji">🌸</span>
-            <p class="front-text">Seu jeitinho</p>
-            <p class="back-text">Único, doce e completamente seu.</p>
+
+        <div class="weather-container" id="weatherContainer" style="display: none;">
+            <!-- Current Weather -->
+            <div class="current-weather">
+                <div class="city-info">
+                    <h2 id="cityName"></h2>
+                    <p id="currentDate"></p>
+                </div>
+                <div class="weather-main">
+                    <div class="temperature-section">
+                        <img id="weatherIcon" src="" alt="Weather icon">
+                        <div class="temp-info">
+                            <span id="temperature" class="temperature"></span>
+                            <span id="weatherDescription" class="description"></span>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="fas fa-droplets"></i>
+                            <div>
+                                <p class="detail-label">Humidity</p>
+                                <p id="humidity" class="detail-value"></p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-wind"></i>
+                            <div>
+                                <p class="detail-label">Wind Speed</p>
+                                <p id="windSpeed" class="detail-value"></p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-compress"></i>
+                            <div>
+                                <p class="detail-label">Pressure</p>
+                                <p id="pressure" class="detail-value"></p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-eye"></i>
+                            <div>
+                                <p class="detail-label">Visibility</p>
+                                <p id="visibility" class="detail-value"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forecast -->
+            <div class="forecast-section">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-container" id="forecastContainer"></div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="additional-info">
+                <div class="info-card">
+                    <i class="fas fa-sun"></i>
+                    <div>
+                        <p class="info-label">Sunrise</p>
+                        <p id="sunrise" class="info-value"></p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-moon"></i>
+                    <div>
+                        <p class="info-label">Sunset</p>
+                        <p id="sunset" class="info-value"></p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-arrow-up"></i>
+                    <div>
+                        <p class="info-label">Feels Like</p>
+                        <p id="feelsLike" class="info-value"></p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-tint"></i>
+                    <div>
+                        <p class="info-label">Dew Point</p>
+                        <p id="dewPoint" class="info-value"></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</section>
 
-<!-- GALERIA -->
-<section class="gallery reveal">
-    <h2>Nossos momentos 📸</h2>
-    <p class="hint">Clique e explore os momentos especiais ✨</p>
-    <div class="grid-photos">
-        <div class="photo">💑</div>
-        <div class="photo">🌹</div>
-        <div class="photo">💕</div>
-        <div class="photo">✨</div>
-        <div class="photo">🌟</div>
-        <div class="photo">💜</div>
-    </div>
-</section>
-
-<!-- CONTADOR -->
-<section class="counter reveal">
-    <h2>Cada segundo conta ⏳</h2>
-    <p class="sub">Tempo que te amo</p>
-    <div class="timer">
-        <div><div class="num" id="days">0</div><div class="label">dias</div></div>
-        <div><div class="num" id="hours">0</div><div class="label">horas</div></div>
-        <div><div class="num" id="minutes">0</div><div class="label">min</div></div>
-        <div><div class="num" id="seconds">0</div><div class="label">seg</div></div>
-    </div>
-</section>
-
-<!-- CARTA -->
-<section class="letter reveal">
-    <h2>Uma cartinha pra você 💌</h2>
-    <div class="letter-box">
-        <p id="letterText">Clique no botão e abra a carta 👇</p>
-        <button class="btn" onclick="openLetter()">Abrir carta 💌</button>
-    </div>
-</section>
-
-<footer>
-    feito com 💜 especialmente para Nayara Carlos | 2026
-</footer>
-
-<script>
-    // Corações flutuando no hero
-    const heartsContainer = document.getElementById('floatingHearts');
-    const heartEmojis = ['💜', '💗', '✨', '🌸', '💫'];
-    for (let i = 0; i < 18; i++) {
-        const s = document.createElement('span');
-        s.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-        s.style.left = Math.random() * 100 + '%';
-        s.style.animationDuration = (6 + Math.random() * 8) + 's';
-        s.style.animationDelay = (Math.random() * 6) + 's';
-        heartsContainer.appendChild(s);
-    }
-
-    // Rastro de corações no cursor
-    document.addEventListener('mousemove', (e) => {
-        if (Math.random() > 0.85) {
-            const h = document.createElement('div');
-            h.className = 'heart-trail';
-            h.textContent = ['💜', '💗', '⭐'][Math.floor(Math.random() * 3)];
-            h.style.left = e.clientX + 'px';
-            h.style.top = e.clientY + 'px';
-            document.body.appendChild(h);
-            setTimeout(() => h.remove(), 1200);
-        }
-    });
-
-    // Animação de scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => observer.observe(el));
-
-    // Contador de tempo - AJUSTE A DATA ABAIXO PARA QUANDO COMEÇARAM
-    const startDate = new Date('2025-01-01T00:00:00');
-    function updateCounter() {
-        const now = new Date();
-        let diff = now - startDate;
-        if (diff < 0) diff = 0;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-        document.getElementById('days').textContent = days;
-        document.getElementById('hours').textContent = hours;
-        document.getElementById('minutes').textContent = minutes;
-        document.getElementById('seconds').textContent = seconds;
-    }
-    setInterval(updateCounter, 1000);
-    updateCounter();
-
-    // Abrir carta + confete
-    function openLetter() {
-        document.getElementById('letterText').textContent =
-            "Nayara, cada dia ao seu lado (ou pensando em você) é um presente. Você traz leveza, carinho e cor pros meus dias. Esse site é só uma forma pequena de mostrar o quanto você é especial e importante pra mim. Te amo! 💜";
-        burstConfetti();
-    }
-
-    function burstConfetti() {
-        const emojis = ['💜', '✨', '🎉', '💗', '🌸'];
-        for (let i = 0; i < 40; i++) {
-            const c = document.createElement('div');
-            c.className = 'confetti';
-            c.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-            c.style.left = Math.random() * 100 + 'vw';
-            c.style.animationDuration = (2.5 + Math.random() * 2) + 's';
-            document.body.appendChild(c);
-            setTimeout(() => c.remove(), 4500);
-        }
-    }
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
